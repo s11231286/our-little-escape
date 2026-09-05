@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Escape ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- ==================================
+             SCREEN 0 - PERSONAL ENTRANCE
+        =================================== -->
+
+        <section class="screen active" id="screen0">
+
+            <div class="mini-heart">♡</div>
+
+            <p class="eyebrow">
+                Before we begin...
+            </p>
+
+            <h1>
+                I made this little corner<br>
+                of the internet just for you.
+            </h1>
+
+            <p class="subtitle">
+                Before you continue, I need to make sure
+                this little invitation found the right person. ♡
+            </p>
+
+            <div class="entry-form">
+
+                <label for="visitorName">
+                    Your name
+                </label>
+
+                <input
+                    type="text"
+                    id="visitorName"
+                    placeholder="What should I call you?"
+                    autocomplete="name"
+                >
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="startExperience()"
+            >
+                This was made for me ♡
+            </button>
+
+            <p id="entryError"></p>
+
+        </section>
+
+
+        <!-- ==================================
+             SCREEN 1 - INVITATION
+        =================================== -->
+
+        <section class="screen" id="screen1">
+
+            <div class="mini-heart">♡</div>
+
+            <p class="eyebrow">
+                A tiny invitation for you
+            </p>
+
+            <h1 id="personalHeading">
+                Can I steal you<br>
+                for a little while?
+            </h1>
+
+            <p class="subtitle">
+                I have a small plan in mind.<br>
+                You just need to make a few important decisions.
+            </p>
+
+            <button
+                class="primary"
+                onclick="nextScreen(2)"
+            >
+                Tell me more ✦
+            </button>
+
+            <button
+                class="text-button"
+                onclick="changeQuestion()"
+            >
+                Hmm... should I be suspicious? 👀
+            </button>
+
+            <p id="secretMessage"></p>
+
+        </section>
+
+
+        <!-- ==================================
+             SCREEN 2 - CHOOSE VIBE
+        =================================== -->
+
+        <section class="screen" id="screen2">
+
+            <button
+                class="back"
+                onclick="nextScreen(1)"
+                aria-label="Go back"
+            >
+                ←
+            </button>
+
+            <p class="eyebrow">
+                Step 01
+            </p>
+
+            <h2>
+                Choose our vibe
+            </h2>
+
+            <p class="subtitle">
+                No overthinking. Pick whatever sounds good right now.
+            </p>
+
+
+            <div class="choice-grid">
+
+                <button
+                    class="choice"
+                    onclick="chooseVibe(this, 'Cozy & Cute')"
+                >
+                    <span>☕</span>
+
+                    <strong>
+                        Cozy & Cute
+                    </strong>
+
+                    <small>
+                        Food, talking & zero rush
+                    </small>
+                </button>
+
+
+                <button
+                    class="choice"
+                    onclick="chooseVibe(this, 'Food Adventure')"
+                >
+                    <span>🍜</span>
+
+                    <strong>
+                        Food Adventure
+                    </strong>
+
+                    <small>
+                        Let's find something ridiculously good
+                    </small>
+                </button>
+
+
+                <button
+                    class="choice"
+                    onclick="chooseVibe(this, 'Sunset Escape')"
+                >
+                    <span>🌅</span>
+
+                    <strong>
+                        Sunset Escape
+                    </strong>
+
+                    <small>
+                        Views, music & good company
+                    </small>
+                </button>
+
+
+                <button
+                    class="choice"
+                    onclick="chooseVibe(this, 'Surprise Me')"
+                >
+                    <span>🎲</span>
+
+                    <strong>
+                        Surprise Me
+                    </strong>
+
+                    <small>
+                        You give up all decision-making rights
+                    </small>
+                </button>
+
+            </div>
+
+
+            <button
+                class="primary disabled"
+                id="vibeNext"
+                onclick="nextScreen(3)"
+            >
+                Continue →
+            </button>
+
+        </section>
+
+
+        <!-- ==================================
+             SCREEN 3 - DATE & TIME
+        =================================== -->
+
+        <section class="screen" id="screen3">
+
+            <button
+                class="back"
+                onclick="nextScreen(2)"
+                aria-label="Go back"
+            >
+                ←
+            </button>
+
+            <p class="eyebrow">
+                Step 02
+            </p>
+
+            <h2>
+                When am I stealing you?
+            </h2>
+
+            <p class="subtitle">
+                Pick a day that works for you.
+            </p>
+
+
+            <div class="date-box">
+
+                <label for="datePicker">
+                    Choose a date
+                </label>
+
+                <input
+                    type="date"
+                    id="datePicker"
+                    onchange="dateSelected()"
+                >
+
+            </div>
+
+
+            <div
+                id="timeSection"
+                class="hidden"
+            >
+
+                <p class="time-title">
+                    And what time feels right?
+                </p>
+
+
+                <div class="times">
+
+                    <button onclick="chooseTime(this, '11:00 AM')">
+                        11:00 AM
+                    </button>
+
+                    <button onclick="chooseTime(this, '1:00 PM')">
+                        1:00 PM
+                    </button>
+
+                    <button onclick="chooseTime(this, '3:00 PM')">
+                        3:00 PM
+                    </button>
+
+                    <button onclick="chooseTime(this, '5:30 PM')">
+                        5:30 PM
+                    </button>
+
+                    <button onclick="chooseTime(this, '7:00 PM')">
+                        7:00 PM
+                    </button>
+
+                    <button onclick="chooseTime(this, '8:30 PM')">
+                        8:30 PM
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary disabled"
+                id="dateNext"
+                onclick="nextScreen(4)"
+            >
+                One more thing →
+            </button>
+
+        </section>
+
+
+        <!-- ==================================
+             SCREEN 4 - EXTRA
+        =================================== -->
+
+        <section class="screen" id="screen4">
+
+            <button
+                class="back"
+                onclick="nextScreen(3)"
+                aria-label="Go back"
+            >
+                ←
+            </button>
+
+            <p class="eyebrow">
+                Final decision
+            </p>
+
+            <h2>
+                One thing we absolutely need...
+            </h2>
+
+            <p class="subtitle">
+                Every good date needs one essential ingredient.
+            </p>
+
+
+            <div class="extras">
+
+                <button
+                    onclick="chooseExtra(this, 'Dessert 🍰')"
+                >
+                    Dessert 🍰
+                </button>
+
+                <button
+                    onclick="chooseExtra(this, 'Cute photos 📸')"
+                >
+                    Cute photos 📸
+                </button>
+
+                <button
+                    onclick="chooseExtra(this, 'A long drive 🚗')"
+                >
+                    A long drive 🚗
+                </button>
+
+                <button
+                    onclick="chooseExtra(this, 'A surprise 🎁')"
+                >
+                    A surprise 🎁
+                </button>
+
+            </div>
+
+
+            <button
+                class="primary disabled"
+                id="extraNext"
+                onclick="showFinal()"
+            >
+                Lock it in ♡
+            </button>
+
+        </section>
+
+
+        <!-- ==================================
+             SCREEN 5 - FINAL TICKET
+        =================================== -->
+
+        <section class="screen" id="screen5">
+
+            <div class="confetti">
+                ✦ ♡ ✦
+            </div>
+
+            <p class="eyebrow">
+                Officially confirmed
+            </p>
+
+            <h1>
+                It's a date.
+            </h1>
+
+            <p
+                class="subtitle"
+                id="finalGreeting"
+            >
+                Excellent decision, by the way.
+            </p>
+
+
+            <!-- DATE TICKET -->
+
+            <div class="ticket">
+
+                <div class="ticket-top">
+
+                    <span>
+                        OUR LITTLE ESCAPE
+                    </span>
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+
+                <div class="ticket-row">
+
+                    <small>
+                        FOR
+                    </small>
+
+                    <strong id="finalName"></strong>
+
+                </div>
+
+
+                <div class="ticket-row">
+
+                    <small>
+                        DATE
+                    </small>
+
+                    <strong id="finalDate"></strong>
+
+                </div>
+
+
+                <div class="ticket-row">
+
+                    <small>
+                        TIME
+                    </small>
+
+                    <strong id="finalTime"></strong>
+
+                </div>
+
+
+                <div class="ticket-row">
+
+                    <small>
+                        VIBE
+                    </small>
+
+                    <strong id="finalVibe"></strong>
+
+                </div>
+
+
+                <div class="ticket-row">
+
+                    <small>
+                        NON-NEGOTIABLE
+                    </small>
+
+                    <strong id="finalExtra"></strong>
+
+                </div>
+
+
+                <div class="ticket-bottom">
+                    ADMIT TWO ✦ NO REFUNDS
+                </div>
+
+            </div>
+
+
+            <p class="final-message">
+                I'll handle the rest.<br>
+                You just show up looking cute. ♡
+            </p>
+
+
+            <button
+                class="primary"
+                onclick="copyPlan()"
+            >
+                Copy our plan
+            </button>
+
+
+            <button
+                class="text-button"
+                onclick="restart()"
+            >
+                Start over
+            </button>
+
+
+            <p id="copyMessage"></p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================
+         FOOTER
+    =================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-heart">
+            ♡
+        </div>
+
+        <p class="footer-main">
+            Made with <span>♡</span>, specifically for you.
+        </p>
+
+        <p class="footer-small">
+            one little website • one very important date
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
